@@ -44,7 +44,7 @@ pnpm portfolio
 pnpm sync
 
 # Add or update a holding
-pnpm add -- --symbol AAPL --quantity 10 --cost 150 --exchange FUTU --type STOCK --name "Apple Inc"
+pnpm holding:add -- --symbol AAPL --quantity 10 --cost 150 --exchange FUTU --type STOCK --name "Apple Inc"
 
 # View portfolio value history (last 30 days)
 pnpm history
@@ -111,7 +111,7 @@ Indicators: SMA (20/50), EMA (20), RSI (14), MACD (12/26/9).
 |---------|-------------|
 | `pnpm portfolio` | View all holdings |
 | `pnpm sync` | Fetch latest prices & calculate value |
-| `pnpm add` | Add/update holding |
+| `pnpm holding:add` | Add/update holding |
 | `pnpm history` | View portfolio value history |
 | `pnpm ta` | Technical analysis (all assets) |
 | `pnpm ta:ticker` | TA for single ticker |
