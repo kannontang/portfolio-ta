@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Asset {
+  id           String         @id @default(cuid())
+  symbol       String         @unique
+  name         String
+  type         AssetType
+  exchange     Exchange
+  quantity     Float
+  avgCost      Float?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  priceHistory PriceHistory[]
+  alerts       Alert[]
+
+  @@index([symbol])
+  @@index([exchange])
+}
+
+model PriceHistory {
+  id        String   @id @default(cuid())
+  assetId   String
+  asset     Asset    @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  price     Float
+  currency  String   @default("USD")
+  timestamp DateTime @default(now())
+  source    String   @default("massive")
+
+  @@index([assetId, timestamp])
+  @@index([timestamp])
+}
+
+model PortfolioSnapshot {
+  id          String   @id @default(cuid())
+  totalValue  Float
+  cashValue   Float
+  cryptoValue Float
+  stockValue  Float
+  timestamp   DateTime @default(now())
+
+  @@index([timestamp])
+}
+
+model Alert {
+  id        String    @id @default(cuid())
+  assetId   String
+  asset     Asset     @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  type      AlertType
+  threshold Float
+  triggered Boolean   @default(false)
+  createdAt DateTime  @default(now())
+
+  @@index([assetId])
+  @@index([triggered])
+}
+
+enum AssetType {
+  CASH
+  STABLECOIN
+  CRYPTO
+  STOCK
+  ETF
+}
+
+enum Exchange {
+  CASH
+  BINANCE
+  IB
+  FUTU
+}
+
+enum AlertType {
+  ABOVE
+  BELOW
+  PCT_CHANGE
+}
