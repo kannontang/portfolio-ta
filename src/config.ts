@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const API_KEY = process.env.MASSIVE_API_KEY || '';
-export const BASE_URL = 'https://api.massive.com/v3';
+export const BASE_URL = 'https://api.massive.com/v2';
 
 export interface Asset {
   ticker: string;

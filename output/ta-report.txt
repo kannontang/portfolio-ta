@@ -1,0 +1,10 @@
+=== Portfolio TA Report (2026-03-09) ===
+
+--- Core Index ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+RSP      $198.15      -1.19%    40.4   BEARISH   $202.75   $199.27   🔴 SELL
+         Notes: RSI 40.4 — neutral | MACD bearish | Below SMA20 | Below SMA50
+
+=== Summary ===
+🔴 SELL: RSP

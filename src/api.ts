@@ -9,9 +9,10 @@ async function rateLimit() {
   lastCall = Date.now();
 }
 
-async function apiFetch(path: string, params: Record<string, string> = {}): Promise<any> {
+async function apiFetch(path: string, params: Record<string, string> = {}, baseOverride?: string): Promise<any> {
   await rateLimit();
-  const url = new URL(`${BASE_URL}${path}`);
+  const base = baseOverride || BASE_URL;
+  const url = new URL(`${base}${path}`);
   url.searchParams.set('apiKey', API_KEY);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
   const res = await fetch(url.toString());
@@ -81,7 +82,7 @@ export async function getRSI(ticker: string, window = 14): Promise<IndicatorResu
       window: String(window),
       series_type: 'close',
       limit: '5',
-    });
+    }, 'https://api.massive.com/v1');
     return { ticker, values: (data?.results?.values || []).map((v: any) => ({ timestamp: v.timestamp, value: v.value })) };
   } catch (e: any) {
     return { ticker, values: [], error: e.message };
@@ -111,7 +112,7 @@ export async function getMACD(ticker: string): Promise<MACDResult> {
       signal_window: '9',
       series_type: 'close',
       limit: '5',
-    });
+    }, 'https://api.massive.com/v1');
     return { ticker, values: (data?.results?.values || []).map((v: any) => ({ timestamp: v.timestamp, value: v.value, signal: v.signal, histogram: v.histogram })) };
   } catch (e: any) {
     return { ticker, values: [], error: e.message };
@@ -126,7 +127,7 @@ export async function getSMA(ticker: string, window: number): Promise<IndicatorR
       window: String(window),
       series_type: 'close',
       limit: '3',
-    });
+    }, 'https://api.massive.com/v1');
     return { ticker, values: (data?.results?.values || []).map((v: any) => ({ timestamp: v.timestamp, value: v.value })) };
   } catch (e: any) {
     return { ticker, values: [], error: e.message };
@@ -141,7 +142,7 @@ export async function getEMA(ticker: string, window: number): Promise<IndicatorR
       window: String(window),
       series_type: 'close',
       limit: '3',
-    });
+    }, 'https://api.massive.com/v1');
     return { ticker, values: (data?.results?.values || []).map((v: any) => ({ timestamp: v.timestamp, value: v.value })) };
   } catch (e: any) {
     return { ticker, values: [], error: e.message };

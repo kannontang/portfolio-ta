@@ -1,0 +1,24 @@
+[
+  {
+    "ticker": "RSP",
+    "name": "Invesco S&P 500 Equal Weight",
+    "category": "Core Index",
+    "price": 198.15,
+    "changePercent": -1.1917821880921444,
+    "rsi": 40.44987265635258,
+    "macdHistogram": -0.7166602701015665,
+    "macdSignal": "BEARISH",
+    "sma20": 202.75100000000003,
+    "sma50": 199.27420000000006,
+    "ema20": 201.8693593280453,
+    "priceVsSma20": "BELOW",
+    "priceVsSma50": "BELOW",
+    "signal": "SELL",
+    "notes": [
+      "RSI 40.4 — neutral",
+      "MACD bearish",
+      "Below SMA20",
+      "Below SMA50"
+    ]
+  }
+]
