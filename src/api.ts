@@ -35,10 +35,27 @@ export interface SnapshotResult {
 
 export async function getSnapshot(ticker: string, market: 'stocks' | 'crypto' | 'index'): Promise<SnapshotResult> {
   try {
-    let path: string;
+    // Crypto uses aggregates endpoint instead of snapshot
     if (market === 'crypto') {
-      path = `/snapshot/locale/global/markets/crypto/tickers/${ticker}`;
-    } else if (market === 'index') {
+      const data = await apiFetch(`/aggs/ticker/${ticker}/prev`);
+      const result = data?.results?.[0];
+      if (result) {
+        return {
+          ticker,
+          price: result.c, // close price
+          open: result.o,
+          high: result.h,
+          low: result.l,
+          prevClose: result.c, // use close as prevClose for now
+          changePercent: null,
+        };
+      }
+      return { ticker, price: null, open: null, high: null, low: null, prevClose: null, changePercent: null };
+    }
+
+    // Stocks and indices use snapshot endpoint
+    let path: string;
+    if (market === 'index') {
       path = `/snapshot/locale/us/markets/indices/tickers/${ticker}`;
     } else {
       path = `/snapshot/locale/us/markets/stocks/tickers/${ticker}`;
