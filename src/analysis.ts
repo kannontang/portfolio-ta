@@ -75,14 +75,15 @@ export async function analyzeAsset(asset: Asset): Promise<TAResult> {
     notes: [],
   };
 
-  // Only run TA for stocks (indices/crypto may not support all indicators)
+  // Run TA for stocks and crypto (indices may not support all indicators)
+  const runTA = asset.market === 'stocks' || asset.market === 'crypto';
   const [snap, rsiRes, macdRes, sma20Res, sma50Res, ema20Res] = await Promise.all([
     getSnapshot(asset.ticker, asset.market),
-    asset.market === 'stocks' ? getRSI(asset.ticker) : Promise.resolve({ ticker: asset.ticker, values: [] }),
-    asset.market === 'stocks' ? getMACD(asset.ticker) : Promise.resolve({ ticker: asset.ticker, values: [] }),
-    asset.market === 'stocks' ? getSMA(asset.ticker, 20) : Promise.resolve({ ticker: asset.ticker, values: [] }),
-    asset.market === 'stocks' ? getSMA(asset.ticker, 50) : Promise.resolve({ ticker: asset.ticker, values: [] }),
-    asset.market === 'stocks' ? getEMA(asset.ticker, 20) : Promise.resolve({ ticker: asset.ticker, values: [] }),
+    runTA ? getRSI(asset.ticker) : Promise.resolve({ ticker: asset.ticker, values: [] }),
+    runTA ? getMACD(asset.ticker) : Promise.resolve({ ticker: asset.ticker, values: [] }),
+    runTA ? getSMA(asset.ticker, 20) : Promise.resolve({ ticker: asset.ticker, values: [] }),
+    runTA ? getSMA(asset.ticker, 50) : Promise.resolve({ ticker: asset.ticker, values: [] }),
+    runTA ? getEMA(asset.ticker, 20) : Promise.resolve({ ticker: asset.ticker, values: [] }),
   ]);
 
   result.price = snap.price;
