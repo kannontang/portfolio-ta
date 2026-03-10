@@ -35,9 +35,9 @@ export interface SnapshotResult {
 
 export async function getSnapshot(ticker: string, market: 'stocks' | 'crypto' | 'index'): Promise<SnapshotResult> {
   try {
-    // Crypto uses aggregates endpoint instead of snapshot
+    // Crypto snapshot not available in current plan, use aggregates
     if (market === 'crypto') {
-      const data = await apiFetch(`/aggs/ticker/${ticker}/prev`);
+      const data = await apiFetch(`/aggs/ticker/${ticker}/prev`, {}, 'https://api.massive.com/v2');
       const result = data?.results?.[0];
       if (result) {
         return {

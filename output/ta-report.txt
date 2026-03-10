@@ -1,10 +1,112 @@
 === Portfolio TA Report (2026-03-09) ===
 
+--- Core Index ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+RSP      $198.71      +0.28%    42.4   BEARISH   $202.57   $199.39   🔴 SELL
+         Notes: RSI 42.4 — neutral | MACD bearish | Below SMA20 | Below SMA50
+
+--- Precious Metals ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+GLDM     $101.76      -0.21%    54.2   BEARISH   $100.98   $96.35    🟡 HOLD
+         Notes: RSI 54.2 — neutral | MACD bearish | Above SMA20 | Above SMA50
+SLV      $78.26       +3.06%    51.7   BEARISH   $75.64    $77.52    🟡 HOLD
+         Notes: RSI 51.7 — neutral | MACD bearish | Above SMA20 | Above SMA50
+
+--- Income ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+JEPI     $58.38       +0.50%    43.3   BEARISH   $59.15    $58.57    🔴 SELL
+         Notes: RSI 43.3 — neutral | MACD bearish | Below SMA20 | Below SMA50
+
+--- Tech ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+TSLA     $398.68      +0.49%    42.4   BEARISH   $409.56   $426.27   🔴 SELL
+         Notes: RSI 42.4 — neutral | MACD bearish | Below SMA20 | Below SMA50
+NVDA     $182.65      +2.72%    47.8   BEARISH   $186.02   $185.87   🔴 SELL
+         Notes: RSI 47.8 — neutral | MACD bearish | Below SMA20 | Below SMA50
+MSFT     $409.41      +0.11%    47.8   BULLISH   $401.59   $436.20   🟡 HOLD
+         Notes: RSI 47.8 — neutral | MACD bullish | Above SMA20 | Below SMA50
+GOOG     $306.01      +2.58%    43.7   BEARISH   $308.39   $320.00   🔴 SELL
+         Notes: RSI 43.7 — neutral | MACD bearish | Below SMA20 | Below SMA50
+AMZN     $213.49      +0.13%    47.9   BULLISH   $208.05   $225.01   🟡 HOLD
+         Notes: RSI 47.9 — neutral | MACD bullish | Above SMA20 | Below SMA50
+PLTR     $156.43      -0.46%    60.3   BULLISH   $139.79   $156.67   🟡 HOLD
+         Notes: RSI 60.3 — strong | MACD bullish | Above SMA20 | Below SMA50
+RKLB     $71.48       +1.95%    48.5   BULLISH   $70.97    $77.32    🟡 HOLD
+         Notes: RSI 48.5 — neutral | MACD bullish | Above SMA20 | Below SMA50
+
 --- Chips ---
 Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
 ───────────────────────────────────────────────────────────────────────────────────────────────
-MU       $370.30      -6.74%    42.6   BEARISH   $405.50   $375.71   🔴 SELL
-         Notes: RSI 42.6 — neutral | MACD bearish | Below SMA20 | Below SMA50
+SMH      $394.37      +3.63%    46.8   BEARISH   $406.44   $396.30   🔴 SELL
+         Notes: RSI 46.8 — neutral | MACD bearish | Below SMA20 | Below SMA50
+MU       $389.32      +5.14%    48.4   BEARISH   $405.23   $377.98   🟡 HOLD
+         Notes: RSI 48.4 — neutral | MACD bearish | Below SMA20 | Above SMA50
+TSM      $348.70      +2.89%    46.8   BEARISH   $364.96   $341.81   🟡 HOLD
+         Notes: RSI 46.8 — neutral | MACD bearish | Below SMA20 | Above SMA50
+EWY      $133.89      +5.65%    52.4   BEARISH   $136.08   $121.54   🟡 HOLD
+         Notes: RSI 52.4 — neutral | MACD bearish | Below SMA20 | Above SMA50
+
+--- Financials ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+V        $315.97      -0.44%    42.7   BULLISH   $318.97   $330.24   🟡 HOLD
+         Notes: RSI 42.7 — neutral | MACD bullish | Below SMA20 | Below SMA50
+
+--- Infrastructure ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+PAVE     $52.20       +1.20%    41.4   BEARISH   $54.64    $52.25    🔴 SELL
+         Notes: RSI 41.4 — neutral | MACD bearish | Below SMA20 | Below SMA50
+
+--- Utilities ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+XLU      $46.85       +0.24%    61.5   BEARISH   $46.34    $44.29    🟡 HOLD
+         Notes: RSI 61.5 — strong | MACD bearish | Above SMA20 | Above SMA50
+
+--- Copper ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+COPX     $82.24       +2.86%    43.3   BEARISH   $88.59    $84.26    🔴 SELL
+         Notes: RSI 43.3 — neutral | MACD bearish | Below SMA20 | Below SMA50
+
+--- Defence ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+XAR      $282.14      +1.02%    53.8   BEARISH   $279.12   $274.09   🟡 HOLD
+         Notes: RSI 53.8 — neutral | MACD bearish | Above SMA20 | Above SMA50
+SHLD     $78.02       +1.01%    60.7   BULLISH   $74.67    $73.81    🟢 BUY
+         Notes: RSI 60.7 — strong | MACD bullish | Above SMA20 | Above SMA50
+
+--- Space ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+UFO      $45.23       +1.62%    52.7   BEARISH   $44.68    $44.20    🟡 HOLD
+         Notes: RSI 52.7 — neutral | MACD bearish | Above SMA20 | Above SMA50
+
+--- Nuclear ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+URA      $51.07       +4.69%    46.1   BEARISH   $53.11    $52.36    🔴 SELL
+         Notes: RSI 46.1 — neutral | MACD bearish | Below SMA20 | Below SMA50
+
+--- Crypto ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+BTCUSD   $65947.76    N/A       N/A    N/A       N/A       N/A       🟡 HOLD
+BNBUSD   $611.57      N/A       N/A    N/A       N/A       N/A       🟡 HOLD
+
+--- Index ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+SPX      N/A          N/A       N/A    N/A       N/A       N/A       🟡 HOLD
+VIX      N/A          N/A       N/A    N/A       N/A       N/A       🟡 HOLD
 
 === Summary ===
-🔴 SELL: MU
+🔴 SELL: RSP, JEPI, TSLA, NVDA, GOOG, SMH, PAVE, COPX, URA
+🟡 HOLD: GLDM, SLV, MSFT, AMZN, PLTR, RKLB, MU, TSM, EWY, V, XLU, XAR, UFO, BTCUSD, BNBUSD, SPX, VIX
+🟢 BUY: SHLD

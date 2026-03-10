@@ -1,0 +1,5 @@
+COPX holdings update (2026-03-09):
+- Previous: 5 shares @ $89.21 (Mar 4)
+- New: 8 shares @ $77.40 (Mar 9)
+- Total: 13 shares, avg cost $82.42
+- v6.0 target: 50-55 shares (5% allocation)
