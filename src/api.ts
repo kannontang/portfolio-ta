@@ -165,3 +165,31 @@ export async function getEMA(ticker: string, window: number): Promise<IndicatorR
     return { ticker, values: [], error: e.message };
   }
 }
+
+export interface HistoricalData {
+  ticker: string;
+  date: string;
+  open: number | null;
+  high: number | null;
+  low: number | null;
+  close: number | null;
+  volume: number | null;
+  error?: string;
+}
+
+export async function getHistoricalPrice(ticker: string, date: string): Promise<HistoricalData> {
+  try {
+    const data = await apiFetch(`/open-close/${ticker}/${date}`, {}, 'https://api.massive.com/v1');
+    return {
+      ticker,
+      date,
+      open: data?.open ?? null,
+      high: data?.high ?? null,
+      low: data?.low ?? null,
+      close: data?.close ?? null,
+      volume: data?.volume ?? null,
+    };
+  } catch (e: any) {
+    return { ticker, date, open: null, high: null, low: null, close: null, volume: null, error: e.message };
+  }
+}

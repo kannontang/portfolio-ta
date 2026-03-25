@@ -11,7 +11,8 @@
     "sync": "npx ts-node src/commands/sync.ts",
     "portfolio": "npx ts-node src/commands/portfolio.ts",
     "holding:add": "npx ts-node src/commands/add.ts",
-    "history": "npx ts-node src/commands/history.ts"
+    "history": "npx ts-node src/commands/history.ts",
+    "historical": "npx ts-node src/commands/historical.ts"
   },
   "prisma": {
     "seed": "npx ts-node prisma/seed.ts"

@@ -1,10 +1,177 @@
-=== Portfolio TA Report (2026-03-10) ===
+=== Portfolio TA Report (2026-03-20) ===
+
+--- Core Index ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+RSP      N/A          N/A       34.8   BEARISH   $199.41   $199.55   🟡 HOLD
+         Notes: RSI 34.8 — weak | MACD bearish
+SPY      N/A          N/A       35.2   BEARISH   $677.72   $684.71   🟡 HOLD
+         Notes: RSI 35.2 — weak | MACD bearish
+VOO      N/A          N/A       35.2   BEARISH   $623.31   $629.71   🟡 HOLD
+         Notes: RSI 35.2 — weak | MACD bearish
+
+--- Precious Metals ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+GLDM     N/A          N/A       33.5   BEARISH   $100.95   $98.21    🟡 HOLD
+         Notes: RSI 33.5 — weak | MACD bearish
+SLV      N/A          N/A       37.5   BEARISH   $76.41    $78.37    🟡 HOLD
+         Notes: RSI 37.5 — weak | MACD bearish
+GLD      N/A          N/A       33.6   BEARISH   $468.70   $456.00   🟡 HOLD
+         Notes: RSI 33.6 — weak | MACD bearish
+GDX      N/A          N/A       28.2   BEARISH   $102.84   $101.30   🟡 HOLD
+         Notes: RSI 28.2 — oversold | MACD bearish
+
+--- Income ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+JEPI     N/A          N/A       32.0   BEARISH   $58.43    $58.52    🟡 HOLD
+         Notes: RSI 32.0 — weak | MACD bearish
+
+--- Tech ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+TSLA     N/A          N/A       36.4   BEARISH   $400.67   $416.55   🟡 HOLD
+         Notes: RSI 36.4 — weak | MACD bearish
+NVDA     N/A          N/A       43.6   BEARISH   $183.98   $184.93   🟡 HOLD
+         Notes: RSI 43.6 — neutral | MACD bearish
+MSFT     N/A          N/A       36.0   BULLISH   $399.54   $422.80   🟢 BUY
+         Notes: RSI 36.0 — weak | MACD bullish
+GOOG     N/A          N/A       45.7   BULLISH   $306.68   $318.51   🟡 HOLD
+         Notes: RSI 45.7 — neutral | MACD bullish
+AMZN     N/A          N/A       44.0   BULLISH   $211.09   $221.59   🟡 HOLD
+         Notes: RSI 44.0 — neutral | MACD bullish
+PLTR     N/A          N/A       57.5   BULLISH   $146.86   $152.19   🟡 HOLD
+         Notes: RSI 57.5 — neutral | MACD bullish
+RKLB     N/A          N/A       50.0   BULLISH   $70.83    $76.73    🟡 HOLD
+         Notes: RSI 50.0 — neutral | MACD bullish
+
+--- Chips ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+SMH      N/A          N/A       48.0   BEARISH   $400.58   $400.24   🟡 HOLD
+         Notes: RSI 48.0 — neutral | MACD bearish
+MU       N/A          N/A       58.5   BULLISH   $416.83   $398.93   🟡 HOLD
+         Notes: RSI 58.5 — neutral | MACD bullish
+TSM      N/A          N/A       43.6   BEARISH   $356.39   $347.13   🟡 HOLD
+         Notes: RSI 43.6 — neutral | MACD bearish
+EWY      N/A          N/A       53.5   BEARISH   $136.10   $126.44   🟡 HOLD
+         Notes: RSI 53.5 — neutral | MACD bearish
+
+--- Financials ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+V        N/A          N/A       31.4   BEARISH   $312.69   $322.79   🟡 HOLD
+         Notes: RSI 31.4 — weak | MACD bearish
+
+--- Infrastructure ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+PAVE     N/A          N/A       33.4   BEARISH   $52.95    $52.54    🟡 HOLD
+         Notes: RSI 33.4 — weak | MACD bearish
+
+--- Utilities ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+XLU      N/A          N/A       53.5   BEARISH   $46.93    $44.91    🟡 HOLD
+         Notes: RSI 53.5 — neutral | MACD bearish
+
+--- Copper ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+COPX     N/A          N/A       33.1   BEARISH   $84.86    $84.88    🟡 HOLD
+         Notes: RSI 33.1 — weak | MACD bearish
+SCCO     N/A          N/A       33.4   BEARISH   $194.35   $190.47   🟡 HOLD
+         Notes: RSI 33.4 — weak | MACD bearish
+
+--- Defence ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+XAR      N/A          N/A       43.2   BEARISH   $278.27   $277.49   🟡 HOLD
+         Notes: RSI 43.2 — neutral | MACD bearish
+SHLD     N/A          N/A       51.8   BEARISH   $75.94    $75.29    🟡 HOLD
+         Notes: RSI 51.8 — neutral | MACD bearish
+RTX      N/A          N/A       47.0   BEARISH   $204.37   $200.36   🟡 HOLD
+         Notes: RSI 47.0 — neutral | MACD bearish
+LMT      N/A          N/A       48.2   BEARISH   $654.56   $622.44   🟡 HOLD
+         Notes: RSI 48.2 — neutral | MACD bearish
+
+--- Space ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+UFO      N/A          N/A       55.1   BULLISH   $45.22    $45.08    🟡 HOLD
+         Notes: RSI 55.1 — neutral | MACD bullish
+
+--- Nuclear ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+URA      N/A          N/A       40.5   BEARISH   $51.99    $53.03    🟡 HOLD
+         Notes: RSI 40.5 — neutral | MACD bearish
+NLR      N/A          N/A       39.7   BEARISH   $143.08   $145.16   🟡 HOLD
+         Notes: RSI 39.7 — weak | MACD bearish
+CCJ      N/A          N/A       41.3   BEARISH   $115.89   $116.72   🟡 HOLD
+         Notes: RSI 41.3 — neutral | MACD bearish
+OKLO     N/A          N/A       35.6   BULLISH   $61.99    $74.10    🟢 BUY
+         Notes: RSI 35.6 — weak | MACD bullish
+
+--- AI/Quantum ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+QQQ      N/A          N/A       40.9   BEARISH   $604.31   $611.79   🟡 HOLD
+         Notes: RSI 40.9 — neutral | MACD bearish
+
+--- Japan ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+DXJ      N/A          N/A       39.3   BEARISH   $161.72   $158.84   🟡 HOLD
+         Notes: RSI 39.3 — weak | MACD bearish
+EWJ      N/A          N/A       39.0   BEARISH   $87.57    $87.37    🟡 HOLD
+         Notes: RSI 39.0 — weak | MACD bearish
+
+--- Utilities/Infra ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+PWR      N/A          N/A       63.9   BEARISH   $563.93   $512.95   🔴 SELL
+         Notes: RSI 63.9 — strong | MACD bearish
+GEV      N/A          N/A       62.2   BEARISH   $844.89   $771.23   🔴 SELL
+         Notes: RSI 62.2 — strong | MACD bearish
+
+--- Energy Short ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+USO      N/A          N/A       72.1   BULLISH   $99.37    $84.81    🟡 HOLD
+         Notes: RSI 72.1 — overbought | MACD bullish
+XOM      N/A          N/A       65.5   BULLISH   $152.34   $144.12   🟡 HOLD
+         Notes: RSI 65.5 — strong | MACD bullish
+CVX      N/A          N/A       75.6   BULLISH   $190.49   $179.83   🟡 HOLD
+         Notes: RSI 75.6 — overbought | MACD bullish
+
+--- Nuclear/Clean ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+BE       N/A          N/A       56.0   BEARISH   $158.26   $150.75   🟡 HOLD
+         Notes: RSI 56.0 — neutral | MACD bearish
+
+--- Dividend ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+QQQI     N/A          N/A       37.2   BEARISH   $52.16    $53.03    🟡 HOLD
+         Notes: RSI 37.2 — weak | MACD bearish
 
 --- Crypto ---
 Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
 ───────────────────────────────────────────────────────────────────────────────────────────────
-BTCUSD   $68402.87    N/A       47.9   N/A       $67514.72 $73652.70 🟡 HOLD
-         Notes: RSI 47.9 — neutral | Above SMA20 | Below SMA50
+BTCUSD   $69898.84    N/A       48.2   BULLISH   N/A       $70134.42 🟡 HOLD
+         Notes: RSI 48.2 — neutral | MACD bullish | Below SMA50
+BNBUSD   N/A          N/A       N/A    N/A       N/A       N/A       🟡 HOLD
+
+--- Index ---
+Ticker   Price        Chg%      RSI    MACD      SMA20     SMA50     Signal
+───────────────────────────────────────────────────────────────────────────────────────────────
+SPX      N/A          N/A       N/A    N/A       N/A       N/A       🟡 HOLD
+VIX      N/A          N/A       N/A    N/A       N/A       N/A       🟡 HOLD
 
 === Summary ===
-🟡 HOLD: BTCUSD
+🟡 HOLD: RSP, GLDM, SLV, JEPI, TSLA, NVDA, GOOG, AMZN, PLTR, RKLB, SMH, MU, TSM, EWY, V, PAVE, XLU, COPX, XAR, UFO, URA, SHLD, SPY, VOO, QQQ, GLD, GDX, DXJ, EWJ, USO, XOM, CVX, RTX, LMT, NLR, CCJ, BE, SCCO, QQQI, BTCUSD, BNBUSD, SPX, VIX
+🟢 BUY: MSFT, OKLO
+🔴 SELL: PWR, GEV
