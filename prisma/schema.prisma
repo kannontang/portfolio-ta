@@ -12,7 +12,7 @@ datasource db {
 
 model Asset {
   id           String         @id @default(cuid())
-  symbol       String         @unique
+  symbol       String
   name         String
   type         AssetType
   exchange     Exchange
@@ -23,6 +23,7 @@ model Asset {
   priceHistory PriceHistory[]
   alerts       Alert[]
 
+  @@unique([symbol, exchange])
   @@index([symbol])
   @@index([exchange])
 }
@@ -83,4 +84,27 @@ enum AlertType {
   ABOVE
   BELOW
   PCT_CHANGE
+}
+
+enum TransactionAction {
+  BUY
+  SELL
+}
+
+model Transaction {
+  id          String            @id @default(cuid())
+  date        DateTime
+  ticker      String
+  action      TransactionAction
+  quantity    Float
+  price       Float
+  totalValue  Float
+  exchange    Exchange
+  notes       String?
+  createdAt   DateTime          @default(now())
+
+  @@index([ticker])
+  @@index([date])
+  @@index([exchange])
+  @@index([action])
 }

@@ -11,6 +11,7 @@ A comprehensive portfolio tracker with PostgreSQL database, real-time price sync
 - 📈 **Technical Analysis** — RSI, MACD, SMA, EMA indicators for all assets
 - 📉 **Historical Tracking** — Portfolio value snapshots over time with P&L calculation
 - 🗄️ **PostgreSQL Database** — Persistent storage for holdings, prices, and snapshots
+- 📝 **Transaction log** — Record buy/sell trades with date, venue, quantity, price, and notes
 
 ## Setup
 
@@ -53,6 +54,30 @@ pnpm history
 pnpm history -- --days 7
 ```
 
+### Transaction log
+
+Log individual buy/sell trades (stored in PostgreSQL). Each row includes date, ticker, action, quantity, unit price, total value, exchange, and optional notes.
+
+```bash
+# List recent transactions (default: all rows, newest first)
+pnpm transaction:log
+
+# Last 90 days only
+pnpm transaction:log -- --days 90
+
+# Filter by ticker and exchange
+pnpm transaction:log -- --ticker NVDA --exchange IB
+
+# Machine-readable output
+pnpm transaction:log -- --json
+
+# Log a new trade (total defaults to quantity × price if omitted)
+pnpm transaction:log -- --add --date 2026-04-01 --ticker NVDA --action buy --quantity 10 --price 175.50 --exchange IB --notes "Open position"
+pnpm transaction:log -- --add --date 2026-04-01 --ticker NVDA --action sell --quantity 5 --price 180 --total 900 --exchange IB
+```
+
+Programmatic access: import `getTransactionHistory` and `logTransaction` from `src/transactions.ts` (pass a `PrismaClient` instance).
+
 ### Technical Analysis
 
 ```bash
@@ -83,6 +108,9 @@ pnpm ta -- --all --json
 ### Alert
 - Price alerts (above/below/percent change)
 - Trigger tracking
+
+### Transaction
+- Buy/sell ledger with `date`, `ticker`, `action` (BUY/SELL), `quantity`, `price`, `totalValue`, `exchange`, optional `notes`
 
 ## Portfolio Tracked
 
@@ -116,6 +144,7 @@ Indicators: SMA (20/50), EMA (20), RSI (14), MACD (12/26/9).
 | `pnpm ta` | Technical analysis (all assets) |
 | `pnpm ta:ticker` | TA for single ticker |
 | `pnpm seed` | Seed initial portfolio data |
+| `pnpm transaction:log` | List or add buy/sell transactions |
 
 ## Framework Versions
 

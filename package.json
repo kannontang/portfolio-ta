@@ -12,7 +12,8 @@
     "portfolio": "npx ts-node src/commands/portfolio.ts",
     "holding:add": "npx ts-node src/commands/add.ts",
     "history": "npx ts-node src/commands/history.ts",
-    "historical": "npx ts-node src/commands/historical.ts"
+    "historical": "npx ts-node src/commands/historical.ts",
+    "transaction:log": "npx ts-node src/commands/transaction-log.ts"
   },
   "prisma": {
     "seed": "npx ts-node prisma/seed.ts"
