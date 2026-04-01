@@ -83,6 +83,13 @@ async function main() {
     console.log(`   ID: ${created.id}`);
     console.log(`   ${created.date.toISOString().split('T')[0]} ${created.action} ${created.quantity} ${created.ticker} @ $${created.price.toFixed(4)}`);
     console.log(`   Total: $${created.totalValue.toFixed(2)} | ${created.exchange}`);
+    if (created.action === 'SELL') {
+      console.log(
+        `   Realized P/L: ${
+          created.realizedPnL == null ? 'N/A' : `$${created.realizedPnL.toFixed(2)}`
+        }`
+      );
+    }
     if (created.notes) console.log(`   Notes: ${created.notes}`);
     console.log('');
     return;
@@ -122,20 +129,28 @@ async function main() {
     return;
   }
 
+  const showRealizedPnL = rows.some(r => r.action === 'SELL' && r.realizedPnL != null);
+
   console.log('\n=== Transaction log ===\n');
-  console.log(
-    'Date       Ticker  Action  Qty        Price      Total        Exchange  Notes'
-  );
-  console.log('─'.repeat(100));
+  const header = showRealizedPnL
+    ? 'Date       Ticker  Action  Qty        Price      Total        Exchange  Realized P/L  Notes'
+    : 'Date       Ticker  Action  Qty        Price      Total        Exchange  Notes';
+  console.log(header);
+  console.log('─'.repeat(header.length));
 
   for (const t of rows) {
     const date = t.date.toISOString().split('T')[0];
     const qty = t.quantity.toString();
     const price = `$${t.price.toFixed(4)}`.padStart(10);
     const total = `$${t.totalValue.toFixed(2)}`.padStart(14);
-    const notes = t.notes ? (t.notes.length > 40 ? t.notes.slice(0, 37) + '...' : t.notes) : '');
+    const realized = showRealizedPnL
+      ? (t.realizedPnL == null ? ''.padStart(12) : `$${t.realizedPnL.toFixed(2)}`.padStart(12))
+      : '';
+    const notes = t.notes ? (t.notes.length > 40 ? t.notes.slice(0, 37) + '...' : t.notes) : '';
     console.log(
-      `${date}  ${t.ticker.padEnd(6)}  ${t.action.padEnd(6)}  ${qty.padStart(10)}  ${price}  ${total}  ${t.exchange.padEnd(8)}  ${notes}`
+      showRealizedPnL
+        ? `${date}  ${t.ticker.padEnd(6)}  ${t.action.padEnd(6)}  ${qty.padStart(10)}  ${price}  ${total}  ${t.exchange.padEnd(8)}  ${realized}  ${notes}`
+        : `${date}  ${t.ticker.padEnd(6)}  ${t.action.padEnd(6)}  ${qty.padStart(10)}  ${price}  ${total}  ${t.exchange.padEnd(8)}  ${notes}`
     );
   }
   console.log('');

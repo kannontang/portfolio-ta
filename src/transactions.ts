@@ -8,6 +8,7 @@ export type CreateTransactionInput = {
   price: number;
   totalValue: number;
   exchange: Exchange;
+  realizedPnL?: number | null;
   notes?: string | null;
 };
 
@@ -24,14 +25,31 @@ export async function logTransaction(
   prisma: PrismaClient,
   input: CreateTransactionInput
 ) {
+  const ticker = input.ticker.toUpperCase();
+
+  let realizedPnL: number | null | undefined = input.realizedPnL;
+  if (realizedPnL === undefined && input.action === 'SELL') {
+    const asset = await prisma.asset.findUnique({
+      where: { symbol_exchange: { symbol: ticker, exchange: input.exchange } },
+      select: { avgCost: true },
+    });
+
+    if (asset?.avgCost != null) {
+      realizedPnL = (input.price - asset.avgCost) * input.quantity;
+    } else {
+      realizedPnL = null;
+    }
+  }
+
   return prisma.transaction.create({
     data: {
       date: input.date,
-      ticker: input.ticker.toUpperCase(),
+      ticker,
       action: input.action,
       quantity: input.quantity,
       price: input.price,
       totalValue: input.totalValue,
+      realizedPnL: input.action === 'SELL' ? (realizedPnL ?? null) : null,
       exchange: input.exchange,
       notes: input.notes ?? null,
     },

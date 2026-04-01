@@ -99,6 +99,7 @@ model Transaction {
   quantity    Float
   price       Float
   totalValue  Float
+  realizedPnL Float?
   exchange    Exchange
   notes       String?
   createdAt   DateTime          @default(now())
