@@ -77,8 +77,5 @@ export const PORTFOLIO: Asset[] = [
   { ticker: 'OKLO', name: 'Oklo Inc', category: 'Nuclear', market: 'stocks', shares: 35, avgCost: 55.40 }, // +5@47.58 on 2026-03-30
 ];
 
-export const CASH = {
-  futu: 2188.24,   // updated 2026-04-01 (after SHLD+XAR buys)
-  ib: 13135.00,    // updated 2026-04-01
-  usdt: 0
-};
+// Cash is now tracked exclusively in the database (Asset table).
+// Use `getCash(prisma, 'IB' | 'FUTU' | 'BINANCE')` from `./cash` instead.

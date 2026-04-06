@@ -1,4 +1,4 @@
-import { PrismaClient, Exchange, TransactionAction } from '@prisma/client';
+import { PrismaClient, Broker, TransactionAction } from '@prisma/client';
 import { getTransactionHistory, logTransaction } from '../transactions';
 
 const prisma = new PrismaClient();
@@ -46,6 +46,7 @@ function parseAction(s: string): TransactionAction {
 
 async function main() {
   const { parsed, flags } = parseArgs();
+  const brokerArg = parsed.broker || parsed.exchange; // accept --exchange for back-compat
 
   if (flags.has('add')) {
     if (
@@ -54,10 +55,10 @@ async function main() {
       !parsed.action ||
       !parsed.quantity ||
       !parsed.price ||
-      !parsed.exchange
+      !brokerArg
     ) {
       console.error(
-        'Usage: pnpm transaction:log -- --add --date YYYY-MM-DD --ticker NVDA --action buy --quantity 10 --price 175.5 --exchange IB [--total 1755] [--notes "optional"]'
+        'Usage: pnpm transaction:log -- --add --date YYYY-MM-DD --ticker NVDA --action buy --quantity 10 --price 175.5 --broker IB [--total 1755] [--fee 1.50] [--notes "optional"]'
       );
       process.exit(1);
     }
@@ -67,6 +68,7 @@ async function main() {
     const totalValue = parsed.total
       ? parseFloat(parsed.total)
       : Math.round(quantity * price * 1e6) / 1e6;
+    const fee = parsed.fee ? parseFloat(parsed.fee) : 0;
 
     const created = await logTransaction(prisma, {
       date: parseDateOnly(parsed.date),
@@ -75,14 +77,16 @@ async function main() {
       quantity,
       price,
       totalValue,
-      exchange: parsed.exchange.toUpperCase() as Exchange,
+      fee,
+      feeCcy: parsed['fee-ccy'] ?? 'USD',
+      broker: brokerArg.toUpperCase() as Broker,
       notes: parsed.notes ?? null,
     });
 
     console.log('\n✅ Logged transaction:');
     console.log(`   ID: ${created.id}`);
     console.log(`   ${created.date.toISOString().split('T')[0]} ${created.action} ${created.quantity} ${created.ticker} @ $${created.price.toFixed(4)}`);
-    console.log(`   Total: $${created.totalValue.toFixed(2)} | ${created.exchange}`);
+    console.log(`   Total: $${created.totalValue.toFixed(2)} | Fee: $${created.fee.toFixed(2)} | ${created.broker}`);
     if (created.action === 'SELL') {
       console.log(
         `   Realized P/L: ${
@@ -112,7 +116,7 @@ async function main() {
 
   const rows = await getTransactionHistory(prisma, {
     ticker: parsed.ticker,
-    exchange: parsed.exchange ? (parsed.exchange.toUpperCase() as Exchange) : undefined,
+    broker: brokerArg ? (brokerArg.toUpperCase() as Broker) : undefined,
     action: parsed.action ? parseAction(parsed.action) : undefined,
     from,
     to,
@@ -133,8 +137,8 @@ async function main() {
 
   console.log('\n=== Transaction log ===\n');
   const header = showRealizedPnL
-    ? 'Date       Ticker  Action  Qty        Price      Total        Exchange  Realized P/L  Notes'
-    : 'Date       Ticker  Action  Qty        Price      Total        Exchange  Notes';
+    ? 'Date       Ticker  Action  Qty        Price      Total        Fee       Broker    Realized P/L  Notes'
+    : 'Date       Ticker  Action  Qty        Price      Total        Fee       Broker    Notes';
   console.log(header);
   console.log('─'.repeat(header.length));
 
@@ -143,14 +147,15 @@ async function main() {
     const qty = t.quantity.toString();
     const price = `$${t.price.toFixed(4)}`.padStart(10);
     const total = `$${t.totalValue.toFixed(2)}`.padStart(14);
+    const fee = `$${t.fee.toFixed(2)}`.padStart(8);
     const realized = showRealizedPnL
       ? (t.realizedPnL == null ? ''.padStart(12) : `$${t.realizedPnL.toFixed(2)}`.padStart(12))
       : '';
     const notes = t.notes ? (t.notes.length > 40 ? t.notes.slice(0, 37) + '...' : t.notes) : '';
     console.log(
       showRealizedPnL
-        ? `${date}  ${t.ticker.padEnd(6)}  ${t.action.padEnd(6)}  ${qty.padStart(10)}  ${price}  ${total}  ${t.exchange.padEnd(8)}  ${realized}  ${notes}`
-        : `${date}  ${t.ticker.padEnd(6)}  ${t.action.padEnd(6)}  ${qty.padStart(10)}  ${price}  ${total}  ${t.exchange.padEnd(8)}  ${notes}`
+        ? `${date}  ${t.ticker.padEnd(6)}  ${t.action.padEnd(6)}  ${qty.padStart(10)}  ${price}  ${total}  ${fee}  ${t.broker.padEnd(8)}  ${realized}  ${notes}`
+        : `${date}  ${t.ticker.padEnd(6)}  ${t.action.padEnd(6)}  ${qty.padStart(10)}  ${price}  ${total}  ${fee}  ${t.broker.padEnd(8)}  ${notes}`
     );
   }
   console.log('');
@@ -158,7 +163,9 @@ async function main() {
 
 main()
   .catch(e => {
-    console.error('❌ Error:', e);
+    // Surface errors from logTransaction (insufficient cash, insufficient shares, etc.)
+    // loudly so the Discord/OpenClaw bot can relay them instead of silently dropping.
+    console.error('❌', e?.message ?? e);
     process.exit(1);
   })
   .finally(async () => {

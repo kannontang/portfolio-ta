@@ -11,8 +11,19 @@ async function main() {
       symbol: 'USD_FUTU',
       name: 'Futu USD Cash',
       type: 'CASH',
-      exchange: 'FUTU',
+      broker: 'FUTU',
       quantity: 17438.16,
+      avgCost: 1,
+    },
+  });
+
+  await prisma.asset.create({
+    data: {
+      symbol: 'USD_IB',
+      name: 'IB USD Cash',
+      type: 'CASH',
+      broker: 'IB',
+      quantity: 13135.00, // primary USD buying power at IB
       avgCost: 1,
     },
   });
@@ -22,9 +33,9 @@ async function main() {
       symbol: 'HKD_IB',
       name: 'IB HKD Cash',
       type: 'CASH',
-      exchange: 'IB',
+      broker: 'IB',
       quantity: 8860,
-      avgCost: 0.128, // 1/7.8
+      avgCost: 0.128, // 1/7.8 — archival HKD bucket, not used for trade math
     },
   });
 
@@ -33,7 +44,7 @@ async function main() {
       symbol: 'USDT',
       name: 'Binance USDT',
       type: 'STABLECOIN',
-      exchange: 'BINANCE',
+      broker: 'BINANCE',
       quantity: 5412,
       avgCost: 1,
     },
@@ -45,7 +56,7 @@ async function main() {
       symbol: 'BTC',
       name: 'Bitcoin',
       type: 'CRYPTO',
-      exchange: 'BINANCE',
+      broker: 'BINANCE',
       quantity: 0.15,
       avgCost: 68290.06,
     },
@@ -56,7 +67,7 @@ async function main() {
       symbol: 'BNB',
       name: 'Binance Coin',
       type: 'CRYPTO',
-      exchange: 'BINANCE',
+      broker: 'BINANCE',
       quantity: 0.925,
       avgCost: 628.15,
     },
@@ -68,7 +79,7 @@ async function main() {
       symbol: 'GLDM',
       name: 'SPDR Gold MiniShares',
       type: 'ETF',
-      exchange: 'IB',
+      broker: 'IB',
       quantity: 300,
       avgCost: 101.96,
     },
@@ -79,7 +90,7 @@ async function main() {
       symbol: 'TSLA_IB',
       name: 'Tesla (IB)',
       type: 'STOCK',
-      exchange: 'IB',
+      broker: 'IB',
       quantity: 5,
       avgCost: 417.33,
     },
@@ -90,7 +101,7 @@ async function main() {
       symbol: 'V',
       name: 'Visa',
       type: 'STOCK',
-      exchange: 'IB',
+      broker: 'IB',
       quantity: 3,
       avgCost: 312.99,
     },
@@ -122,7 +133,7 @@ async function main() {
         symbol: holding.symbol,
         name: holding.name,
         type: holding.symbol === 'JEPI' ? 'ETF' : 'STOCK',
-        exchange: 'FUTU',
+        broker: 'FUTU',
         quantity: holding.quantity,
         avgCost: holding.avgCost,
       },

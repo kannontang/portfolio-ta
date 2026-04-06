@@ -15,7 +15,7 @@ model Asset {
   symbol       String
   name         String
   type         AssetType
-  exchange     Exchange
+  broker       Broker
   quantity     Float
   avgCost      Float?
   createdAt    DateTime       @default(now())
@@ -23,9 +23,9 @@ model Asset {
   priceHistory PriceHistory[]
   alerts       Alert[]
 
-  @@unique([symbol, exchange])
+  @@unique([symbol, broker])
   @@index([symbol])
-  @@index([exchange])
+  @@index([broker])
 }
 
 model PriceHistory {
@@ -73,7 +73,7 @@ enum AssetType {
   ETF
 }
 
-enum Exchange {
+enum Broker {
   CASH
   BINANCE
   IB
@@ -99,13 +99,15 @@ model Transaction {
   quantity    Float
   price       Float
   totalValue  Float
+  fee         Float             @default(0)
+  feeCcy      String            @default("USD")
   realizedPnL Float?
-  exchange    Exchange
+  broker      Broker
   notes       String?
   createdAt   DateTime          @default(now())
 
   @@index([ticker])
   @@index([date])
-  @@index([exchange])
+  @@index([broker])
   @@index([action])
 }
