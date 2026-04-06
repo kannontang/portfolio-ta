@@ -37,17 +37,18 @@ async function main() {
   const type = (args.type?.toUpperCase() || 'STOCK') as AssetType;
   const name = args.name || symbol;
 
-  // Check if asset exists
-  const existing = await prisma.asset.findUnique({ where: { symbol } });
+  // Check if asset exists (by symbol + exchange)
+  const existing = await prisma.asset.findUnique({ 
+    where: { symbol_exchange: { symbol, exchange } } 
+  });
 
   if (existing) {
     // Update existing
     const updated = await prisma.asset.update({
-      where: { symbol },
+      where: { symbol_exchange: { symbol, exchange } },
       data: {
         quantity,
         avgCost: avgCost ?? existing.avgCost,
-        exchange,
         type,
         name,
       },

@@ -23,7 +23,7 @@ export const PORTFOLIO: Asset[] = [
   { ticker: 'JEPI', name: 'JPMorgan Equity Premium Income', category: 'Income', market: 'stocks', shares: 100, avgCost: 58.64 },
   // Tech / Growth
   { ticker: 'TSLA', name: 'Tesla', category: 'Tech', market: 'stocks', shares: 10, avgCost: 248.81 },  // IB 5@309.9 + Futu 5@187.724
-  { ticker: 'NVDA', name: 'Nvidia', category: 'Tech', market: 'stocks', shares: 15, avgCost: 184.56 },
+  { ticker: 'NVDA', name: 'Nvidia', category: 'Tech', market: 'stocks', shares: 18, avgCost: 184.56 }, // +3@167.7 on 2026-03-30
   { ticker: 'MSFT', name: 'Microsoft', category: 'Tech', market: 'stocks', shares: 6, avgCost: 397.34 },
   { ticker: 'GOOG', name: 'Alphabet', category: 'Tech', market: 'stocks', shares: 2, avgCost: 307.125 },  // 2@30.125 each
   { ticker: 'AMZN', name: 'Amazon', category: 'Tech', market: 'stocks', shares: 3, avgCost: 209.94 },
@@ -31,7 +31,7 @@ export const PORTFOLIO: Asset[] = [
   { ticker: 'RKLB', name: 'Rocket Lab', category: 'Tech', market: 'stocks', shares: 10, avgCost: 72.23 },
   // Chip Bottom-fishing
   { ticker: 'SMH', name: 'VanEck Semiconductor ETF', category: 'Chips', market: 'stocks', shares: 6, avgCost: 417.182 },
-  { ticker: 'MU', name: 'Micron Technology', category: 'Chips', market: 'stocks', shares: 3, avgCost: 379.12 },
+  { ticker: 'MU', name: 'Micron Technology', category: 'Chips', market: 'stocks', shares: 5, avgCost: 365.67 }, // +2@340 on 2026-03-30
   { ticker: 'TSM', name: 'Taiwan Semiconductor', category: 'Chips', market: 'stocks', shares: 4, avgCost: 329.14 }, // +2@322.68 on 2026-03-25
   { ticker: 'EWY', name: 'iShares MSCI South Korea', category: 'Chips', market: 'stocks', shares: 2, avgCost: 122.15 },
   // Financials
@@ -41,12 +41,12 @@ export const PORTFOLIO: Asset[] = [
   { ticker: 'XLU', name: 'Utilities Select Sector SPDR', category: 'Utilities', market: 'stocks', shares: 11, avgCost: 46.48 },
   { ticker: 'COPX', name: 'Global X Copper Miners', category: 'Copper', market: 'stocks', shares: 20, avgCost: 77.48 },
   // Defence / Space
-  { ticker: 'XAR', name: 'SPDR S&P Aerospace & Defense', category: 'Defence', market: 'stocks', shares: 2, avgCost: 280.00 },
+  { ticker: 'XAR', name: 'SPDR S&P Aerospace & Defense', category: 'Defence', market: 'stocks', shares: 7, avgCost: 262.85 },
   { ticker: 'UFO', name: 'Procure Space ETF', category: 'Space', market: 'stocks', shares: 10, avgCost: 43.16 },
   // Nuclear
   { ticker: 'URA', name: 'Global X Uranium ETF', category: 'Nuclear', market: 'stocks', shares: 32, avgCost: 52.79 },
   // Misc
-  { ticker: 'SHLD', name: 'Global X Defense Tech', category: 'Defence', market: 'stocks', shares: 3, avgCost: 77.05 },
+  { ticker: 'SHLD', name: 'Global X Defense Tech', category: 'Defence', market: 'stocks', shares: 10, avgCost: 72.81 },
   // v6.1 Framework - Not owned
   { ticker: 'SPY', name: 'SPDR S&P 500 ETF', category: 'Core Index', market: 'stocks', shares: 0 },
   { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', category: 'Core Index', market: 'stocks', shares: 0 },
@@ -54,7 +54,7 @@ export const PORTFOLIO: Asset[] = [
   { ticker: 'GLD', name: 'SPDR Gold Shares', category: 'Precious Metals', market: 'stocks', shares: 0 },
   { ticker: 'GDX', name: 'VanEck Gold Miners ETF', category: 'Precious Metals', market: 'stocks', shares: 0 },
   { ticker: 'DXJ', name: 'WisdomTree Japan', category: 'Japan', market: 'stocks', shares: 0 },
-  { ticker: 'EWJ', name: 'iShares MSCI Japan', category: 'Japan', market: 'stocks', shares: 0 },
+  { ticker: 'EWJ', name: 'iShares MSCI Japan', category: 'Japan', market: 'stocks', shares: 3, avgCost: 82.52 }, // +3@82.52 on 2026-03-30
   { ticker: 'PWR', name: 'Quanta Services', category: 'Utilities/Infra', market: 'stocks', shares: 0 },
   { ticker: 'GEV', name: 'GE Vernova', category: 'Utilities/Infra', market: 'stocks', shares: 0 },
   { ticker: 'USO', name: 'United States Oil Fund', category: 'Energy Short', market: 'stocks', shares: 0 },
@@ -74,11 +74,11 @@ export const PORTFOLIO: Asset[] = [
   { ticker: 'I:SPX', name: 'S&P 500', category: 'Index', market: 'index', shares: 0, avgCost: 0 },
   { ticker: 'I:VIX', name: 'VIX', category: 'Index', market: 'index', shares: 0, avgCost: 0 },
   // New Positions
-  { ticker: 'OKLO', name: 'Oklo Inc', category: 'Nuclear', market: 'stocks', shares: 30, avgCost: 56.63 },
+  { ticker: 'OKLO', name: 'Oklo Inc', category: 'Nuclear', market: 'stocks', shares: 35, avgCost: 55.40 }, // +5@47.58 on 2026-03-30
 ];
 
 export const CASH = {
-  futu: 12992.45,
-  ib: 20495.50,
+  futu: 2188.24,   // updated 2026-04-01 (after SHLD+XAR buys)
+  ib: 13135.00,    // updated 2026-04-01
   usdt: 0
 };

@@ -8,6 +8,8 @@
     "ta": "npx ts-node src/index.ts --all",
     "ta:ticker": "npx ts-node src/index.ts",
     "seed": "npx ts-node prisma/seed.ts",
+    "db:migrate": "prisma migrate dev --skip-seed",
+    "db:generate": "prisma generate",
     "sync": "npx ts-node src/commands/sync.ts",
     "portfolio": "npx ts-node src/commands/portfolio.ts",
     "holding:add": "npx ts-node src/commands/add.ts",
